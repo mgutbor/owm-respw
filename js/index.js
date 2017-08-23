@@ -11,38 +11,46 @@ $(function() {
     function getOWMData(city) {
 
         var selectedCity = city || "Sevilla"; // La ciudad por defecto que aparece al cargar la pagina es Sevilla
-        var dataW;
+        var urlAjaxOWM;
+
+        if (selectedCity.charAt(0).match(/[a-z]/i)) {
+            urlAjaxOWM = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM;
+        } else {
+            urlAjaxOWM = "http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM;
+        }
 
         $.ajax({
                 method: "GET",
-                url: "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM
+                url: urlAjaxOWM
             })
             .done(function(data) {
-                dataW = data;
+                $(".loader").slideUp().fadeOut();
+                createCC(data);
             })
             .fail(function() {
                 alert("No se ha encontrado esa ciudad en OpenWeatherMap"); // caso en que falla la captura de datos
             });
 
-        $.ajax({
-                method: "GET",
-                url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + apiKeyFlickr + "&text=" + selectedCity +
-                    "&sort=relevance&per_page=5&safe_search=3&format=json&nojsoncallback=1"
-            })
-            .done(function(dataF) {
-                $(".loader").slideUp().fadeOut();
-                createCC(dataW, dataF);
-            });
-
     }
 
     //Creamos las tarjetas que muestran todos los datos solicitados
-    function createCC(data, dataF) {
+    function createCC(data) {
 
-        $(".main-header").html("Tiempo en <span>" + data.city.name + "</span> en los proximos 5 dias");
+        var cityName = data.city.name;
 
-        $(".city-name").html(data.city.name);
-        setPhotos(dataF.photos.photo);
+        $(".main-header").html("Tiempo en <span>" + cityName + "</span> en los proximos 5 dias");
+
+        $(".city-name").html(cityName);
+
+        $.ajax({
+                method: "GET",
+                url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + apiKeyFlickr + "&text=" + cityName +
+                    "&sort=relevance&per_page=5&safe_search=3&format=json&nojsoncallback=1"
+            })
+            .done(function(dataF) {
+                setPhotos(dataF.photos.photo);
+            });
+
         setDates(data.list);
         setTemps(data.list);
         setIcons(data.list);
@@ -143,5 +151,17 @@ $(function() {
         var year = conv.getFullYear();
         return day + "/" + month + "/" + year;
     }
+
+    //Lanza la llamada de creacion del toast para mostrar la info de la parte inferior izquierda
+    $.toast({
+        heading: 'Buscador',
+        text: 'Pulsa en el icono de la parte superior izquierda para buscar el tiempo en tu ciudad intruduciendo: <ul><li>Nombre, Pais => Sevilla,ES</li><li>CP, Pais => 08008,ES</li></ul>',
+        showHideTransition: 'slide',
+        icon: 'info',
+        hideAfter: false,
+        afterHidden: function () { //Al cerrar el usuario el toast, mediante animate, hacemos que el buscador resalte
+            $('#userCity').addClass('animated flash');
+        } 
+    })
 
 });

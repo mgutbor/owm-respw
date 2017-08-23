@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OpenWeatherMap Responsive Web</title>
-
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="description" content="OpenWeatherMap Responsive Web">
     <meta name="author" content="Manuel Gutierrez">
-
     <link rel="stylesheet" href="css/styles.css">
     <!-- Loader que se muestra al cargar los datos -->
     <link rel="stylesheet" href="css/loader.css">
+    <!-- Toast de la parte inferior para mostrar la informacion de busqueda -->
+    <link rel="stylesheet" href="css/toast.css">
     <!-- He usado la letra Roboto de Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- He usado bootstrap y animate para las maquetacion y animaciones -->
@@ -22,11 +23,14 @@
 
 <body>
     <div class="loader">Cargando...</div>
+    <form action="#" id="changeCity">
+        <input type="search" id="userCity" placeholder="Ciudad o CP">
+    </form>
+    <a href="http://openweathermap.org/" target="_blank" title="Open Weather Map">
+        <img class="logoOWM" src="img/logoOWM.png" />
+    </a>
     <section class="cards">
         <h3 class="main-header"></h3>
-        <form action="#" id="changeCity">
-            <input type="search" id="userCity" placeholder="Ciudad, País">
-        </form>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 col-lg-offset-1">
             <!-- Tarjeta -->
             <article class="card city1">
@@ -103,11 +107,10 @@
             <!-- Fin Tarjeta -->
         </div>
     </section>
-    <img class="logoOWM" src="img/logoOWM.png" />
-    
-    <!-- Archivos JS a cargar (Jquery y la version estable de boostra)p y mi script para intereactuar con la pagina -->
+    <!-- Archivos JS a cargar (Jquery, version estable de boostrap, toast) y mi script para intereactuar con la pagina -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/toast.js"></script>
     <script src="js/index.js"></script>
 </body>
 
