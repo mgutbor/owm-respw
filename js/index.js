@@ -139,7 +139,9 @@ $(function() {
     $("#changeCity").submit(function(event) {
         var userCity = $('#userCity').val();
         $('#userCity').val("");
+
         $(".cards").animate({ opacity: 0 }, { queue: false, duration: 'slow' });
+  
         getOWMData(userCity);
     });
 
@@ -159,9 +161,12 @@ $(function() {
         showHideTransition: 'slide',
         icon: 'info',
         hideAfter: false,
-        afterHidden: function () { //Al cerrar el usuario el toast, mediante animate, hacemos que el buscador resalte
+        afterHidden: function() { //Al cerrar el usuario el toast, mediante animate, hacemos que el buscador resalte y se expanda
             $('#userCity').addClass('animated flash');
-        } 
+            setTimeout(function() {
+                $('#userCity').focus();
+            }, 1500);
+        }
     })
 
 });
