@@ -1,0 +1,153 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+input {
+    outline: none;
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+
+input[type=search] {
+    background: #ededed url(../img/sIcon.png) no-repeat 12px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 35px;
+    width: 10px;
+
+    -webkit-border-radius: 7em;
+    -moz-border-radius: 7em;
+    border-radius: 7em;
+
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+
+    webkit-box-sizing: none;
+    box-sizing: none;
+
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+input[type=search]:focus {
+    width: 170px;
+    background-color: #fff;
+    border-color: #5986B0;
+
+    -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+}
+
+
+input:-moz-placeholder {
+    color: #999;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+.logoOWM {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #54585B;
+}
+
+.main-header span {
+    font-size: 2rem;
+    color: #373A3C;
+}
+
+.card-img-top {
+    min-height: 100%;
+    max-height: 100%;
+    height: 300px;
+    width: 100%;
+}
+
+.card {
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: .25s box-shadow;
+}
+
+.card:focus,
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-block {
+    text-align: center;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.cards {
+    opacity: 0;
+    padding-top: 10%;
+}
+
+.cards::after {
+    content: "";
+    background: url("../img/bg.jpg");
+    background-repeat: cover;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.icon {
+    display: inline-block;
+}
+
+.temp {
+    font-weight: 700;
+    font-size: 2rem;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+@media screen and (max-width: 600px) {
+    .logoOWM {
+        top: 60px;
+        width: 150px;
+    }
+    .main-header {
+        padding: 10px;
+    }
+    .cards {
+        padding-top: 30%;
+    }
+}

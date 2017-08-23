@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenWeatherMap Responsive Web</title>
+
+    <meta name="description" content="OpenWeatherMap Responsive Web">
+    <meta name="author" content="Manuel Gutierrez">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Loader que se muestra al cargar los datos -->
+    <link rel="stylesheet" href="css/loader.css">
+    <!-- He usado la letra Roboto de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- He usado bootstrap y animate para las maquetacion y animaciones -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+</head>
+
+<body>
+    <div class="loader">Cargando...</div>
+    <section class="cards">
+        <h3 class="main-header"></h3>
+        <form action="#" id="changeCity">
+            <input type="search" id="userCity" placeholder="Ciudad, País">
+        </form>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 col-lg-offset-1">
+            <!-- Tarjeta -->
+            <article class="card city1">
+                <img class="card-img-top img-responsive" />
+                <div class="card-block">
+                    <h3 class="card-title city-name"></h3>
+                    <h5 class="card-date"></h5>
+                    <div class="card-text">
+                        <div class="temp"></div>
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Fin Tarjeta -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+            <!-- Tarjeta -->
+            <article class="card city2">
+                <img class="card-img-top img-responsive" />
+                <div class="card-block">
+                    <h3 class="card-title city-name"></h3>
+                    <h5 class="card-date"></h5>
+                    <div class="card-text">
+                        <div class="temp"></div>
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Fin Tarjeta -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+            <!-- Tarjeta -->
+            <article class="card city3">
+                <img class="card-img-top img-responsive" />
+                <div class="card-block">
+                    <h3 class="card-title city-name"></h3>
+                    <h5 class="card-date"></h5>
+                    <div class="card-text">
+                        <div class="temp"></div>
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Fin Tarjeta -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+            <!-- Tarjeta -->
+            <article class="card city4">
+                <img class="card-img-top img-responsive" />
+                <div class="card-block">
+                    <h3 class="card-title city-name"></h3>
+                    <h5 class="card-date"></h5>
+                    <div class="card-text">
+                        <div class="temp"></div>
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Fin Tarjeta -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+            <!-- Tarjeta -->
+            <article class="card city5">
+                <img class="card-img-top img-responsive" />
+                <div class="card-block">
+                    <h3 class="card-title city-name"></h3>
+                    <h5 class="card-date"></h5>
+                    <div class="card-text">
+                        <div class="temp"></div>
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Fin Tarjeta -->
+        </div>
+    </section>
+    <img class="logoOWM" src="img/logoOWM.png" />
+    
+    <!-- Archivos JS a cargar (Jquery y la version estable de boostra)p y mi script para intereactuar con la pagina -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
