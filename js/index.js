@@ -7,7 +7,7 @@ $(function() {
 
     ////////////////////////////////////////////////////////////
 
-    //Con esta funcion obtenemos los datos tanto de OpenWeatherMap como de Flickr
+    //Con esta funcion obtenemos los datos de OpenWeatherMap
     function getOWMData(city) {
 
         var selectedCity = city || "Sevilla"; // La ciudad por defecto que aparece al cargar la pagina es Sevilla
@@ -42,7 +42,7 @@ $(function() {
 
         $(".city-name").html(cityName);
 
-        $.ajax({
+        $.ajax({ // Obtenemos las imagenes de Flickr a traves de su API
                 method: "GET",
                 url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + apiKeyFlickr + "&text=" + cityName +
                     "&sort=relevance&per_page=5&safe_search=3&format=json&nojsoncallback=1"
