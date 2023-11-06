@@ -28,8 +28,8 @@ $(function() {
                 createCC(data);
             })
             .fail(function() {
-                alert("No se ha encontrado esa ciudad en OpenWeatherMap"); // caso en que falla la captura de datos
-                location.reload(); //vuelve a cargar la pagina para que aparezcan de nuevo los datos de la ciudad inicial
+                console.log("No se ha encontrado esa ciudad en OpenWeatherMap"); // caso en que falla la captura de datos
+                // location.reload(); //vuelve a cargar la pagina para que aparezcan de nuevo los datos de la ciudad inicial
             });
 
     }
