@@ -10,13 +10,13 @@ $(function() {
     //Con esta funcion obtenemos los datos de OpenWeatherMap
     function getOWMData(city) {
 
-        var selectedCity = city || "Sevilla, ES"; // La ciudad por defecto que aparece al cargar la pagina es Sevilla
+        var selectedCity = city || "Sevilla"; // La ciudad por defecto que aparece al cargar la pagina es Sevilla
         var urlAjaxOWM;
 
         if (selectedCity.charAt(0).match(/[a-z]/i)) {
-            urlAjaxOWM = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM;
+            urlAjaxOWM = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM;
         } else {
-            urlAjaxOWM = "http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM;
+            urlAjaxOWM = "https://api.openweathermap.org/data/2.5/forecast/daily?zip=" + selectedCity + "&units=metric&cnt=5&appid=" + apiKeyOWM;
         }
 
         $.ajax({
@@ -28,8 +28,8 @@ $(function() {
                 createCC(data);
             })
             .fail(function() {
-                console.log("No se ha encontrado esa ciudad en OpenWeatherMap"); // caso en que falla la captura de datos
-                // location.reload(); //vuelve a cargar la pagina para que aparezcan de nuevo los datos de la ciudad inicial
+                alert("No se ha encontrado esa ciudad en OpenWeatherMap"); // caso en que falla la captura de datos
+                location.reload(); //vuelve a cargar la pagina para que aparezcan de nuevo los datos de la ciudad inicial
             });
 
     }
@@ -129,11 +129,11 @@ $(function() {
     //Introducimos los iconos en las tarjetas
     function setIcons(data) {
 
-        $(".city1 .icon").html("<img src='http://openweathermap.org/img/w/" + data[0].weather[0].icon + ".png'>");
-        $(".city2 .icon").html("<img src='http://openweathermap.org/img/w/" + data[1].weather[0].icon + ".png'>");
-        $(".city3 .icon").html("<img src='http://openweathermap.org/img/w/" + data[2].weather[0].icon + ".png'>");
-        $(".city4 .icon").html("<img src='http://openweathermap.org/img/w/" + data[3].weather[0].icon + ".png'>");
-        $(".city5 .icon").html("<img src='http://openweathermap.org/img/w/" + data[4].weather[0].icon + ".png'>");
+        $(".city1 .icon").html("<img src='https://openweathermap.org/img/w/" + data[0].weather[0].icon + ".png'>");
+        $(".city2 .icon").html("<img src='https://openweathermap.org/img/w/" + data[1].weather[0].icon + ".png'>");
+        $(".city3 .icon").html("<img src='https://openweathermap.org/img/w/" + data[2].weather[0].icon + ".png'>");
+        $(".city4 .icon").html("<img src='https://openweathermap.org/img/w/" + data[3].weather[0].icon + ".png'>");
+        $(".city5 .icon").html("<img src='https://openweathermap.org/img/w/" + data[4].weather[0].icon + ".png'>");
     }
 
     //Funcion para cambiar la ciudad de la que obtenemos los datos mediante la busqueda de la parte superior izquierda
