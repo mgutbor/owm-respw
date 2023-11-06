@@ -10,7 +10,7 @@ $(function() {
     //Con esta funcion obtenemos los datos de OpenWeatherMap
     function getOWMData(city) {
 
-        var selectedCity = city || "Sevilla"; // La ciudad por defecto que aparece al cargar la pagina es Sevilla
+        var selectedCity = city || "Sevilla, ES"; // La ciudad por defecto que aparece al cargar la pagina es Sevilla
         var urlAjaxOWM;
 
         if (selectedCity.charAt(0).match(/[a-z]/i)) {
