@@ -118,7 +118,7 @@ input::-webkit-input-placeholder {
 .cards::after {
     content: "";
     background: url("../img/bg.jpg");
-    background-repeat: cover;
+    background-size: cover;
     opacity: 0.6;
     top: 0;
     left: 0;
